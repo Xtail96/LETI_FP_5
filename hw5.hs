@@ -2,11 +2,11 @@ import Data.List
 
 -- task1
 circShiftL :: Int -> [a] -> [a]
-circShiftL step list =
-    if (length list) > 0
-    then let step_mod = mod step (length list) in
+circShiftL step list
+    | (length list) > 0 =
+        let step_mod = mod step (length list) in
              drop step_mod list ++ take step_mod list
-    else []
+    | otherwise = []
 
 -- task2
 

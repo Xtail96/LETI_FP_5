@@ -101,12 +101,15 @@ instance Foldable Levelorder where
             leftAndRightNodes (LevelO (Node a _ Nil))   = [LevelO a]
             leftAndRightNodes (LevelO (Node a _ b))     = [LevelO a, LevelO b]
 
-treeExample = Node (Node (Node Nil [4] Nil) [2] (Node Nil [5] Nil)) [1] (Node Nil [3] Nil) -- дерево взято с курса на Stepik.org
+testTree = Node (Node (Node Nil [4] Nil) [2] (Node Nil [5] Nil)) [1] (Node Nil [3] Nil) -- дерево взято с курса на Stepik.org
 
-preTree = PreO (treeExample)
+preTree = PreO (testTree)
 
-posTree = PostO (treeExample)
+posTree = PostO (testTree)
 
-levelTree = LevelO (treeExample)
+levelTree = LevelO (testTree)
 
-nodeSum fold = sum(foldMap id fold)
+-- Реализация расчета суммы дерева
+
+treeSum1 = sum(foldMap id testTree)
+treeSum2 = foldl (+) 0 (foldMap id testTree)

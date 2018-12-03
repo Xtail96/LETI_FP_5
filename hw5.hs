@@ -108,3 +108,5 @@ preTree = PreO (treeExample)
 posTree = PostO (treeExample)
 
 levelTree = LevelO (treeExample)
+
+nodeSum fold = sum(foldMap id fold)
